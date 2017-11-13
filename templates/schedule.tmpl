@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Raspberry Py</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="js/jquery.weekly-schedule-plugin.js"></script>
+
+    </head>
+    
+    
+    <body class="subpage">
+    
+    
+    <header id="header">
+        <div class="inner">
+            <a href="index.php" class="logo">Raspberry Py</a>
+            <nav id="nav">
+                <a href="index">Home</a>
+                <a href="termo">Monitor</a>
+            </nav>	
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    
+    </header>
+
+
+<br>
+
+
+<div class="container" style="margin: auto; width: 50%; height: 100%; display: flex; flex-direction: row; justify-content: center;">
+        <div id="target">
+        </div>
+    </div>
+    <script>
+        var mySettings = {
+            days: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], // Days displayed
+            hours: "0:00AM-23:59", // Hours displyed
+            fontFamily: "Sans", // Font used in the component
+            fontColor: "black", // Font colot used in the component
+            fontWeight: "100", // Font weight used in the component
+            fontSize: "0.8em", // Font size used in the component
+            hoverColor: "#727bad", // Background color when hovered
+            selectionColor: "#9aa7ee", // Background color when selected
+            headerBackgroundColor: "transparent", // Background color of headers
+            onSelected: function(){}, // handler called after selection
+            onRemoved: function(){} // handler called after removalls
+}
+
+        $('#target').weekly_schedule(mySettings);
+    </script>
+</body>
+</html>
