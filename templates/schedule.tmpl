@@ -44,20 +44,35 @@
             hoverColor: "#727bad", // Background color when hovered
             selectionColor: "#9aa7ee", // Background color when selected
             headerBackgroundColor: "transparent", // Background color of headers
-            onSelected: function(){
-                $.post("schedule",
-                    {
-                        message: "Donald Duck",
-                        city: "Duckburg"
-                    },
-                        function(data, status){
-                        alert("Data: " + data + "\nStatus: " + status);
-                         });
-                }, // handler called after selection
+            onSelected: function(){}, // handler called after selection
             onRemoved: function(){} // handler called after removalls
-}
+        }
 
         $('#target').weekly_schedule(mySettings);
+        $('.schedule').on('selectionmade', function() {
+                console.log("Selection Made");
+                data = $('#target').weekly_schedule("getSelectedHour");
+                console.log(data)
+                
+        })        
+
+        data = $('#target').weekly_schedule("getSelectedHour");
+        
+        console.log(data)
+
+
+        function schedulePost() {
+           
+                        //data = dump()
+                        //alert("Data: ");
+                        //console.log("Selection Made");  
+                         
+                
+
+
+        }
+
+
     </script>
 </body>
 </html>
