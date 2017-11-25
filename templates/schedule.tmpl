@@ -29,10 +29,12 @@
 <br>
 
 
+
 <div class="container" style="margin: auto; width: 50%; height: 100%; display: flex; flex-direction: row; justify-content: center;">
         <div id="target">
         </div>
     </div>
+    
     <script>
         var mySettings = {
             days: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], // Days displayed
@@ -52,7 +54,8 @@
         $('.schedule').on('selectionmade', function() {
                 console.log("Selection Made");
                 data = $('#target').weekly_schedule("getSelectedHour");
-                console.log(data)
+                //console.log(data)
+               // $.post("schedule", data)
                 
         })        
 
@@ -61,18 +64,16 @@
         console.log(data)
 
 
-        function schedulePost() {
-           
-                        //data = dump()
-                        //alert("Data: ");
-                        //console.log("Selection Made");  
-                         
-                
-
-
+        //Save Button and Post
+        function save() {
+            $.post("schedule", data, function(data){
+                //console.log(data); // check your console, you should see some output
+            });
         }
 
 
     </script>
+    <button type="button" onclick="save();">Save</button> 
+    
 </body>
 </html>

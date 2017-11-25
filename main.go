@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -27,7 +28,6 @@ func main() {
 	router.Static("/css", "css/")
 	router.Static("/js", "js/")
 	router.LoadHTMLGlob("templates/*")
-	//router.LoadHTMLFiles("templates/template1.html", "templates/template2.html")
 	router.GET("/index", Index)
 	router.GET("/schedule", ScheduleGet)
 	router.POST("/schedule", SchedulePost)
@@ -50,7 +50,8 @@ func ScheduleGet(c *gin.Context) {
 }
 
 func SchedulePost(c *gin.Context) {
-	message := c.PostForm("message")
-	fmt.Println(message)
+	message, _ := c.GetRawData()
+	fmt.Print("schedule Post\n")
+	log.Println(message)
 
 }
