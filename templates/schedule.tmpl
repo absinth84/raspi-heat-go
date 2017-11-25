@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="css/main.css" />
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="js/jquery.weekly-schedule-plugin.js"></script>
+        <link rel="stylesheet" href="css/timetablejs.css">
+        <script src="js/timetable.js"></script>
 
     </head>
     
@@ -30,38 +32,15 @@
 
 
 
-<div class="container" style="margin: auto; width: 50%; height: 100%; display: flex; flex-direction: row; justify-content: center;">
-        <div id="target">
-        </div>
-    </div>
+<<div class="timetable"></div>
     
     <script>
-        var mySettings = {
-            days: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], // Days displayed
-            hours: "0:00AM-23:59", // Hours displyed
-            fontFamily: "Sans", // Font used in the component
-            fontColor: "black", // Font colot used in the component
-            fontWeight: "100", // Font weight used in the component
-            fontSize: "0.8em", // Font size used in the component
-            hoverColor: "#727bad", // Background color when hovered
-            selectionColor: "#9aa7ee", // Background color when selected
-            headerBackgroundColor: "transparent", // Background color of headers
-            onSelected: function(){}, // handler called after selection
-            onRemoved: function(){} // handler called after removalls
-        }
+        var timetable = new Timetable();
+        timetable.setScope(0, 23);
+        timetable.addLocations(['Monday', 'Thuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
+        var renderer = new Timetable.Renderer(timetable);
+            renderer.draw('.timetable'); // any css selector
 
-        $('#target').weekly_schedule(mySettings);
-        $('.schedule').on('selectionmade', function() {
-                console.log("Selection Made");
-                data = $('#target').weekly_schedule("getSelectedHour");
-                //console.log(data)
-               // $.post("schedule", data)
-                
-        })        
-
-        data = $('#target').weekly_schedule("getSelectedHour");
-        
-        console.log(data)
 
 
         //Save Button and Post
