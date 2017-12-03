@@ -4,10 +4,12 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="css/main.css" />
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="js/jquery.weekly-schedule-plugin.js"></script>
-        <link rel="stylesheet" href="css/timetablejs.css">
-        <script src="js/timetable.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">  
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />  
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+        
 
     </head>
     
@@ -32,27 +34,54 @@
 
 
 
-<<div class="timetable"></div>
+    <div class="col-md-8">
+        <div id="jsGrid"></div>
+    </div>
     
     <script>
-        var timetable = new Timetable();
-        timetable.setScope(0, 23);
-        timetable.addLocations(['Monday', 'Thuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
-        var renderer = new Timetable.Renderer(timetable);
-            renderer.draw('.timetable'); // any css selector
-
-
-
-        //Save Button and Post
-        function save() {
-            $.post("schedule", data, function(data){
-                //console.log(data); // check your console, you should see some output
-            });
-        }
-
-
+         var clients = [
+        { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
+        { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
+        { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
+        { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
+        { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
+    ];
+ 
+    var countries = [
+        { Name: "", Id: 0 },
+        { Name: "United States", Id: 1 },
+        { Name: "Canada", Id: 2 },
+        { Name: "United Kingdom", Id: 3 }
+    ];
+ 
+    $("#jsGrid").jsGrid({
+        width: "auto",
+        height: "auto",
+        selecting: true,
+ 
+      
+        data: clients,
+ 
+        fields: [
+            { name: "Monday", type: "select"},
+            { name: "Tuesday", type: "text" },
+            { name: "Wednesday", type: "text"},
+            { name: "Thursday", type: "text" },
+            { name: "Friday", type: "text"},
+            { name: "Saturday", type: "text"},
+            { name: "Sunday", type: "text"}
+        ]
+    });
+     
     </script>
     <button type="button" onclick="save();">Save</button> 
+
+
+
+    <style>
+ 
+ 
+</style>
     
 </body>
 </html>
