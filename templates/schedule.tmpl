@@ -1,87 +1,157 @@
 <html>
-    <head>
+
+<head>
         <title>Raspberry Py</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/bootstrap.min.css">  
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />  
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    
+</head>
 
-    </head>
-    
-    
-    <body class="subpage">
-    
-    
+
+
+
+<body class="subpage">
+
+
     <header id="header">
         <div class="inner">
             <a href="index.php" class="logo">Raspberry Py</a>
             <nav id="nav">
                 <a href="index">Home</a>
                 <a href="termo">Monitor</a>
-            </nav>	
-            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle">
+                <span class="fa fa-bars"></span>
+            </a>
         </div>
-    
+
     </header>
 
 
-<br>
-
-
+    <br>
 
     <div class="col-md-8">
-        <div id="jsGrid"></div>
+        <form id="myForm">
+                <label class="custom-control custom-radio">
+                        <input id="myRadiored" name="myRadio" type="radio" value="red" checked="checked"  class="custom-control-input" required>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Red</span>
+                </label>
+                <label class="custom-control custom-radio">
+                        <input id="myRadioGreen" name="myRadio" type="radio" value="green" class="custom-control-input" required>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Green</span>
+                </label>
+        </form>
     </div>
-    
-    <script>
-         var clients = [
-        { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
-        { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
-        { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
-        { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
-        { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
-    ];
- 
-    var countries = [
-        { Name: "", Id: 0 },
-        { Name: "United States", Id: 1 },
-        { Name: "Canada", Id: 2 },
-        { Name: "United Kingdom", Id: 3 }
-    ];
- 
-    $("#jsGrid").jsGrid({
-        width: "auto",
-        height: "auto",
-        selecting: true,
- 
-      
-        data: clients,
- 
-        fields: [
-            { name: "Monday", type: "select"},
-            { name: "Tuesday", type: "text" },
-            { name: "Wednesday", type: "text"},
-            { name: "Thursday", type: "text" },
-            { name: "Friday", type: "text"},
-            { name: "Saturday", type: "text"},
-            { name: "Sunday", type: "text"}
-        ]
-    });
-     
-    </script>
-    <button type="button" onclick="save();">Save</button> 
 
+    <div class="col-md-8">
+        <table cellpadding="0" cellspacing="0" id="our_table">
+            <tr>
+                <td></td>
+                <td>Mon</td>
+                <td>Thus</td>
+                <td>Wed</td>
+                <td>Thu</td>
+                <td>Fri</td>
+                <td>Sat</td>
+                <td>Sun</td>
+            </tr>
+            <tr>
+                    <td>00:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+            </tr>
+            <tr>
+                    <td>00:30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+            </tr>
+        </table>
+        <br />
+        
+    </div>
+
+
+    <button type="button" onclick="save();">Save</button>
+
+
+    
+
+    <script>
+        $(function () {
+            var isMouseDown = false,
+                isHighlighted;
+            var currentStyle = "red";
+
+            $("#myForm input").on('change', function () {
+                currentStyle = $('input[name="myRadio"]:checked', '#myForm').val();
+            });
+
+            $("#our_table td")
+                .mousedown(function () {
+                    isMouseDown = true;
+                    $(this).toggleClass("highlighted-" + currentStyle);
+                    isHighlighted = $(this).hasClass("highlighted-" + currentStyle);
+                    return false; // prevent text selection
+                })
+                .mouseover(function () {
+                    if (isMouseDown) {
+                        if (isHighlighted && "highlighted-" + currentStyle == "highlighted-red")
+                            $(this).toggleClass("highlighted-green", false);
+                        if (isHighlighted && "highlighted-" + currentStyle == "highlighted-green")
+                            $(this).toggleClass("highlighted-red", false);
+                        $(this).toggleClass("highlighted-" + currentStyle, isHighlighted);
+                    }
+                })
+                .bind("selectstart", function () {
+                    return false;
+                });
+
+            $(document)
+                .mouseup(function () {
+                    isMouseDown = false;
+                });
+        });
+
+
+    </script>
 
 
     <style>
- 
- 
-</style>
-    
+        table td {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #ccc;
+            border: 1px solid #fff;
+        }
+
+        table td.highlighted-red {
+            background-color: #f00;
+        }
+
+        table td.highlighted-green {
+            background-color: #0f0;
+        }
+    </style>
+
 </body>
+
 </html>
