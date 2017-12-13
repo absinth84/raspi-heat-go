@@ -54,33 +54,33 @@
         <table cellpadding="0" cellspacing="0" id="our_table">
             <tr>
                 <td></td>
-                <td>Mon</td>
-                <td>Thus</td>
-                <td>Wed</td>
-                <td>Thu</td>
-                <td>Fri</td>
-                <td>Sat</td>
-                <td>Sun</td>
+                <td class="noselect">Mon</td>
+                <td class="noselect">Thus</td>
+                <td class="noselect">Wed</td>
+                <td class="noselect">Thu</td>
+                <td class="noselect">Fri</td>
+                <td class="noselect">Sat</td>
+                <td class="noselect">Sun</td>
             </tr>
             <tr>
-                    <td>00:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="noselect">00:00</td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
             </tr>
             <tr>
-                    <td>00:30</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="noselect">00:30</td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
+                    <td class="selectable"></td>
             </tr>
         </table>
         <br />
@@ -103,14 +103,16 @@
                 currentStyle = $('input[name="myRadio"]:checked', '#myForm').val();
             });
 
-            $("#our_table td")
-                .mousedown(function () {
+            $("#our_table").on("mousedown",'.selectable',
+                function (e) {
+                    e.stopPropagation();
                     isMouseDown = true;
                     $(this).toggleClass("highlighted-" + currentStyle);
                     isHighlighted = $(this).hasClass("highlighted-" + currentStyle);
                     return false; // prevent text selection
                 })
-                .mouseover(function () {
+                .on("mouseover",'.selectable',
+                    function () {
                     if (isMouseDown) {
                         if (isHighlighted && "highlighted-" + currentStyle == "highlighted-red")
                             $(this).toggleClass("highlighted-green", false);
